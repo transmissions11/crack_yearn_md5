@@ -1,65 +1,39 @@
-use md5;
+use itertools::Itertools;
+use std::thread;
+use std::time::Duration;
+
+fn hash_md5(input: String) -> String {
+    format!("{:x}", md5::compute(input.into_bytes()))
+}
 
 fn main() {
     let goal_hash = "dbba1bfe930d953cabcc03d7b6ab05e6";
 
-    let length = 17;
-
-    let alphabet = "bdeilmost"
+    let alphabet = "bdeilmostu"
         .split("")
         .map(String::from)
-        .filter(|letter| !letter.is_empty())
-        .collect::<Vec<String>>();
+        .filter(|letter| !letter.is_empty());
 
-    let mut words = alphabet.clone();
+    let words = alphabet.combinations_with_replacement(17).collect_vec();
 
-    for _ in 1..length {
-        let mut temp: Vec<String> = Vec::new();
+    println!("Length of words: {}", words.len());
 
-        for word in words.iter() {
-            for letter in alphabet.iter() {
-                let new_word = format!("{}{}", word, letter);
-
-                println!("{}", new_word);
-                temp.push(new_word);
-            }
-        }
-
-        words = temp;
-    }
-
-    println!("Words len: {}", words.len());
+    thread::sleep(Duration::from_secs(2));
 
     for word in words.iter() {
+        let joined: String = word.join("");
         let merged = format!(
             "{}{}",
-            word, "........................................................!1"
+            joined, "........................................................!1"
         );
 
-        println!("Merged {}", merged);
+        println!("{}", merged);
 
-        let hash = format!(
-            "{:x}",
-            md5::compute(
-                format!(
-                    "{:x}",
-                    md5::compute(
-                        format!(
-                            "{:x}",
-                            md5::compute(
-                                format!("{:x}", md5::compute(merged.clone().into_bytes()))
-                                    .into_bytes()
-                            )
-                        )
-                        .into_bytes(),
-                    )
-                )
-                .into_bytes(),
-            )
-        );
+        let hash = hash_md5(hash_md5(hash_md5(hash_md5(merged))));
 
         if hash == goal_hash {
-            println!("We found it: {}", word);
+            println!("We found it: {}", joined);
+            thread::sleep(Duration::from_secs(100));
             return;
         }
     }

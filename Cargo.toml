@@ -8,6 +8,7 @@ edition = "2018"
 
 [dependencies]
 md5 = "0.7.0"
+itertools = "0.9"
 
 [profile.dev]
 opt-level = 3
