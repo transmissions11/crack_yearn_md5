@@ -2,7 +2,7 @@
 # It is not intended for manual editing.
 [[package]]
 name = "crack_yearn_md5"
-version = "1.0.1-alpha.0"
+version = "2.0.0"
 dependencies = [
  "md5",
 ]
