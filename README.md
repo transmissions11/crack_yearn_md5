@@ -2,7 +2,7 @@
 
 This is a Rust project that was able to reverse engineer the password to the [Yearn v2 site](https://v2.yearn.finance) from a 2x md5 hashed version of it (`86566bae1bb08cfe94a58cd86f391b10`) shared by one of their developers.
 
-#### This program actually reversed the hash which is now known to be: `its-time-to-build........................................................!1`
+**This program was able to reverse the hash to its input: `its-time-to-build........................................................!1`**
 
 However this version of the project is not my first attempt at reversing the password. During the time I was developing my original (and more complex) solution the problem, the Yearn team began giving out many hints which allowed me to rewrite the software to more easily reverse the hash.
 
