@@ -1,3 +1,4 @@
+use num_format::{Locale, ToFormattedString};
 use std::thread;
 use std::time::Duration;
 
@@ -21,15 +22,23 @@ fn main() {
     for phase in 1..length {
         let mut temp: Vec<String> = Vec::new();
 
-        for word in words.iter() {
+        for (index, word) in words.iter().enumerate() {
             for letter in alphabet.iter() {
                 let new_word = format!("{}{}", word, letter);
 
                 temp.push(new_word);
             }
-        }
 
-        println!("Phase {}/{}", phase, length);
+            if index != 0 && ((index % 1000000) == 0) {
+                println!(
+                    "Completed Phase {}/{}'s sub-phase {}/{}",
+                    phase,
+                    length,
+                    index.to_formatted_string(&Locale::en),
+                    words.len().to_formatted_string(&Locale::en),
+                );
+            }
+        }
 
         words = temp;
     }
