@@ -1,6 +1,5 @@
+#[cfg(debug_assertions)]
 use num_format::{Locale, ToFormattedString};
-use std::thread;
-use std::time::Duration;
 
 fn hash_md5(input: String) -> String {
     format!("{:x}", md5::compute(input.into_bytes()))
@@ -58,10 +57,10 @@ fn main() {
         words = temp;
     }
 
-    let length = words.len();
-    println!("\n\nLength of words: {}\n\n", length);
-
-    thread::sleep(Duration::from_secs(2));
+    #[cfg(debug_assertions)]
+    let word_list_length = words.len();
+    #[cfg(debug_assertions)]
+    println!("\n\nLength of word list: {}\n\n", word_list_length);
 
     #[cfg(not(debug_assertions))]
     let loopable_words = words.iter();
@@ -88,7 +87,7 @@ fn main() {
         #[cfg(debug_assertions)]
         println!(
             "Attempts: {}/{}, Hash: {}, Text: {}",
-            attempts, length, hash, merged
+            attempts, word_list_length, hash, merged
         );
 
         if hash == goal_hash {
