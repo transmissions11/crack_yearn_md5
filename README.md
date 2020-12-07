@@ -9,7 +9,7 @@ The a copy of the chunk file from which the hash was extracted from [is saved in
 - It will be in this format: `xxxxxxxxxxxxxxxxx........................................................!1` (replace the 17 `x`s with an actual 17 character string)
 - The 17 `x`s will only be chars in this set (can be repeated): `[b, d, e, i, l, m, o, s, t, u, -]`
 
-### This project attempts to crack this has in the following way:
+### This project attempts to crack the hash in the following way:
 
 - Takes the charset and creates all possible 17 letter combinations with it (this takes A LOT OF TIME)
 - Appends `........................................................!1` to each combo and runs an md5 hash function 4 times on it like so: `md5(md5(md5(md5(combo))))`
