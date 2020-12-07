@@ -4,6 +4,9 @@ This is a Rust project that is desgined to reverse engineer the password to the 
 
 A copy of the chunk file from which the hash was extracted from [is saved in this repository](https://github.com/TransmissionsDev/crack_md5/blob/master/main_chunk_with_hash_from_yearn_src.js).
 
+
+**This is the original version of the `crack_yearn_md5` project. [On the master branch](https://github.com/TransmissionsDev/crack_yearn_md5/) there is an "easier" solution which takes advantage of the extra hints given by the Yearn team after the development of this first version. However this version has been left up to show how it's possible to solve with less hints but requires more time & computing power.**
+
 ### Some hints were given by the Yearn team:
 
 - It will be in this format: `xxxxxxxxxxxxxxxxx........................................................!1` (replace the 17 `x`s with an actual 17 character string)
