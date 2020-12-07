@@ -2,7 +2,9 @@
 
 This is a Rust project that was able to reverse engineer the password to the [Yearn v2 site](https://v2.yearn.finance) from a 2x md5 hashed version of it (`86566bae1bb08cfe94a58cd86f391b10`) shared by one of their developers.
 
-**This program was able to reverse the hash to its input: `its-time-to-build........................................................!1`**
+**This program was able to reverse the hash back into its input (the passcode) which is now known to be:**
+
+`its-time-to-build........................................................!1`
 
 However this version of the project is not my first attempt at reversing the password. During the time I was developing my original (and more complex) solution the problem, the Yearn team began giving out many hints which allowed me to rewrite the software to more easily reverse the hash.
 
@@ -15,7 +17,7 @@ The version you are viewing now is the "easier" solution which takes full advant
 - The 17 `x`s will be replaced with 4 words, each seperated by a dash (`-`) : the first word will have 3 characters, the second will have 4, the third will have 2, and the fourth will have 5. 
 - The first word is: "its"
 
-### This project is able to crack the hash in the following way:
+### This project is able to crack the hash using the following method:
 
 - Takes a txt file with all English words (each on a new line)
 - Creates 3 lists of possible words for each of the 3 unknown word slots by checking for every word in the dictionary if its length matches up with the hinted length (as well as if all the characters in the word are in the charset `[b, d, e, i, l, m, o, s, t, u, -]`)
