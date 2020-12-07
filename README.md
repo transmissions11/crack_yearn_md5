@@ -6,7 +6,7 @@ This is a Rust project that was able to reverse engineer the password to the [Ye
 
 `its-time-to-build........................................................!1`
 
-However this version of the project is not my first attempt at reversing the password. During the time I was developing my original (and more complex) solution the problem, the Yearn team began giving out many hints which allowed me to rewrite the software to more easily reverse the hash.
+However this version of the project is not my first attempt at reversing the hash. During the time I was developing my original (and more complex) solution the problem, the Yearn team began giving out many hints which allowed me to rewrite the software to more easily reverse the hash.
 
 The version you are viewing now is the "easier" solution which takes full advantage of all the hints. If you'd like to see my solution the harder version of this challenge (an 4x md5 hashed version with no knowlege about the first words, the length of the words or if it was made of valid english words), [please click here to the v1 branch.](https://github.com/TransmissionsDev/crack_yearn_md5/tree/v1)
 
