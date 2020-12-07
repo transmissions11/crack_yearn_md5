@@ -22,13 +22,28 @@ fn main() {
     for phase in 1..length {
         let mut temp: Vec<String> = Vec::new();
 
-        for (index, word) in words.iter().enumerate() {
+        #[cfg(not(debug_assertions))]
+        let loopable_words = words.iter();
+
+        #[cfg(debug_assertions)]
+        let loopable_words = words.iter().enumerate();
+
+        for data in loopable_words {
+            #[cfg(not(debug_assertions))]
+            let word = data;
+
+            #[cfg(debug_assertions)]
+            let word = data.1;
+            #[cfg(debug_assertions)]
+            let index = data.0;
+
             for letter in alphabet.iter() {
                 let new_word = format!("{}{}", word, letter);
 
                 temp.push(new_word);
             }
 
+            #[cfg(debug_assertions)]
             if index != 0 && ((index % 1000000) == 0) {
                 println!(
                     "Completed phase {}/{}'s sub-phase {}/{}",
@@ -48,7 +63,21 @@ fn main() {
 
     thread::sleep(Duration::from_secs(2));
 
-    for (attempts, word) in words.iter().enumerate() {
+    #[cfg(not(debug_assertions))]
+    let loopable_words = words.iter();
+
+    #[cfg(debug_assertions)]
+    let loopable_words = words.iter().enumerate();
+
+    for data in loopable_words {
+        #[cfg(not(debug_assertions))]
+        let word = data;
+
+        #[cfg(debug_assertions)]
+        let word = data.1;
+        #[cfg(debug_assertions)]
+        let attempts = data.0;
+
         let merged = format!(
             "{}{}",
             word, "........................................................!1"
@@ -56,13 +85,14 @@ fn main() {
 
         let hash = hash_md5(hash_md5(hash_md5(hash_md5(merged.clone()))));
 
+        #[cfg(debug_assertions)]
         println!(
             "Attempts: {}/{}, Hash: {}, Text: {}",
             attempts, length, hash, merged
         );
 
         if hash == goal_hash {
-            println!("We found it: {}", word);
+            println!("We found the password: {}", merged);
 
             return;
         }
