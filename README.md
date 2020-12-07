@@ -4,7 +4,7 @@ This is a Rust project that is desgined to reverse engineer the password to the 
 
 A copy of the chunk file from which the hash was extracted from [is saved in this repository](https://github.com/TransmissionsDev/crack_md5/blob/master/main_chunk_with_hash_from_yearn_src.js).
 
-### Some hints were given by the yEarn team:
+### Some hints were given by the Yearn team:
 
 - It will be in this format: `xxxxxxxxxxxxxxxxx........................................................!1` (replace the 17 `x`s with an actual 17 character string)
 - The 17 `x`s will only be chars in this set (can be repeated): `[b, d, e, i, l, m, o, s, t, u, -]`
