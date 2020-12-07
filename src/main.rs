@@ -10,7 +10,7 @@ fn main() {
 
     let length = 17;
 
-    let alphabet = "bdeilmost-"
+    let alphabet = "bdeilmostu-"
         .split("")
         .map(String::from)
         .filter(|letter| !letter.is_empty())
