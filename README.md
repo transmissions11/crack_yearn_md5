@@ -2,13 +2,11 @@
 
 This is a Rust project that was able to reverse engineer the password to the [Yearn v2 site](https://v2.yearn.finance) from a 2x md5 hashed version of it (`86566bae1bb08cfe94a58cd86f391b10`) shared by one of their developers.
 
-However this version of the project is not the first iteration as the Yearn team gave out many hints during the time I was developing my original, more complex, solution. 
+#### This program actually reversed the hash which is now known to be: `its-time-to-build........................................................!1`
 
-The version you are viewing now is the "easier" solution which takes advantage of all the hints. 
+However this version of the project is not my first attempt at reversing the password. During the time I was developing my original (more complex) solution the problem, the Yearn team began giving out many hints which allowed me to rewrite the software to easily reverse the hash.
 
-#### This program actually cracked the code which is now known to be: `its-time-to-build........................................................!1`
-
-This "easier" solution is outlined below, but if you'd like to see my solution the harder version of this challenge (an 4x md5 hashed version with no knowlege about the first words, the length of the words or if it was made of valid english words), [please click here to the v1 branch.](https://github.com/TransmissionsDev/crack_yearn_md5/tree/v1)
+The version you are viewing now is the "easier" solution which takes full advantage of all the hints. If you'd like to see my solution the harder version of this challenge (an 4x md5 hashed version with no knowlege about the first words, the length of the words or if it was made of valid english words), [please click here to the v1 branch.](https://github.com/TransmissionsDev/crack_yearn_md5/tree/v1)
 
 ### All hints given by the Yearn team:
 
