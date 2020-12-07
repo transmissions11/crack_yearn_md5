@@ -1,6 +1,8 @@
 # crack_yearn_md5
 
-This is a Rust project that is desgined to reverse engineer the password to the [v2 yEarn Site](https://v2.yearn.finance) from a 4x hashed md5 (`dbba1bfe930d953cabcc03d7b6ab05e`)  visible in their JavaScript.
+This is a Rust project that is desgined to reverse engineer the password to the [v2 yEarn Site](https://v2.yearn.finance) from a 4x hashed md5 (`dbba1bfe930d953cabcc03d7b6ab05e`) visible in their JavaScript.
+
+The a copy of the chunk file from which the hash was extracted from [is saved in this repository](https://github.com/TransmissionsDev/crack_md5/blob/master/main_chunk_with_hash_from_yearn_src.js).
 
 ### Some hints were given by the yEarn team:
 
