@@ -31,7 +31,7 @@ fn main() {
 
             if index != 0 && ((index % 1000000) == 0) {
                 println!(
-                    "Completed Phase {}/{}'s sub-phase {}/{}",
+                    "Completed phase {}/{}'s sub-phase {}/{}",
                     phase,
                     length,
                     index.to_formatted_string(&Locale::en),
