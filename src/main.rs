@@ -1,4 +1,3 @@
-use itertools::Itertools;
 use std::thread;
 use std::time::Duration;
 
@@ -9,16 +8,31 @@ fn hash_md5(input: String) -> String {
 fn main() {
     let goal_hash = "dbba1bfe930d953cabcc03d7b6ab05e";
 
-    let chars = "bdeilmostu-";
+    let length = 17;
 
-    let repeated_chars = chars.repeat(17);
-
-    let alphabet = repeated_chars
+    let alphabet = "bdeilmost-"
         .split("")
         .map(String::from)
-        .filter(|letter| !letter.is_empty());
+        .filter(|letter| !letter.is_empty())
+        .collect::<Vec<String>>();
 
-    let words = alphabet.combinations(17).collect_vec();
+    let mut words = alphabet.clone();
+
+    for phase in 1..length {
+        let mut temp: Vec<String> = Vec::new();
+
+        for word in words.iter() {
+            for letter in alphabet.iter() {
+                let new_word = format!("{}{}", word, letter);
+
+                temp.push(new_word);
+            }
+        }
+
+        println!("Phase {}/{}", phase, length);
+
+        words = temp;
+    }
 
     let length = words.len();
     println!("Length of words: {}", length);
@@ -26,11 +40,9 @@ fn main() {
     thread::sleep(Duration::from_secs(2));
 
     for (attempts, word) in words.iter().enumerate() {
-        let joined: String = word.join("");
-
         let merged = format!(
             "{}{}",
-            joined, "........................................................!1"
+            word, "........................................................!1"
         );
 
         let hash = hash_md5(hash_md5(hash_md5(hash_md5(merged.clone()))));
@@ -41,7 +53,7 @@ fn main() {
         );
 
         if hash == goal_hash {
-            println!("We found it: {}", joined);
+            println!("We found it: {}", word);
 
             return;
         }
