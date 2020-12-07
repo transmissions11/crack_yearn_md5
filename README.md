@@ -2,7 +2,7 @@
 
 This is a Rust project that was able to reverse engineer the password to the [Yearn v2 site](https://v2.yearn.finance) from a 2x md5 hashed version of it (`86566bae1bb08cfe94a58cd86f391b10`) shared by one of their developers.
 
-However, the Yearn team gave out many hints during the time I was developing my original, more complex, solution. 
+However this version of the project is not the first iteration as the Yearn team gave out many hints during the time I was developing my original, more complex, solution. 
 
 The version you are viewing now is the "easier" solution which takes advantage of all the hints. 
 
