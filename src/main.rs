@@ -44,7 +44,7 @@ fn main() {
     }
 
     let length = words.len();
-    println!("Length of words: {}", length);
+    println!("\n\nLength of words: {}\n\n", length);
 
     thread::sleep(Duration::from_secs(2));
 
