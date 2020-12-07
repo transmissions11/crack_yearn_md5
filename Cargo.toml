@@ -1,6 +1,8 @@
 [package]
-name = "crack_md5"
+name = "crack_yearn_md5"
 version = "1.0.0"
+description = "Software to crack the Yearn v2 site password from a 4x md5 hash found in the sourcecode."
+license = "AGPL-3.0"
 authors = ["Transmissions <greenfeatherhelp@gmail.com>"]
 edition = "2018"
 

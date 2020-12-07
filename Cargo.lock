@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "crack_md5"
+name = "crack_yearn_md5"
 version = "1.0.0"
 dependencies = [
  "md5",
